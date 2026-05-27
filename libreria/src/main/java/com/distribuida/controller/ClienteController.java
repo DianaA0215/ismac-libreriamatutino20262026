@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("/api/clientes")
 public class ClienteController {
 
     @Autowired
@@ -20,7 +20,7 @@ public class ClienteController {
         List<Cliente> clientes = clienteService.findAll();
         return ResponseEntity.ok(clientes);
     }
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<Cliente> findOne(@PathVariable int id){
         Cliente cliente = clienteService.findOne(id);
         if(cliente == null){
@@ -36,7 +36,7 @@ public class ClienteController {
         }
         return ResponseEntity.ok(clienteNuevo);
     }
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<Cliente> update(@PathVariable int id, @RequestBody  Cliente cliente){
         Cliente clienteActualizado = clienteService.update(id,cliente);
         if(clienteActualizado == null){
@@ -44,7 +44,7 @@ public class ClienteController {
         }
         return ResponseEntity.ok(clienteActualizado);
     }
-    @DeleteMapping
+    @DeleteMapping("{id}")
     public ResponseEntity<Void> delete(@PathVariable int id){
         clienteService.delete(id);
         return ResponseEntity.noContent().build();
