@@ -1,20 +1,55 @@
 package com.distribuida.model;
 
-public class Autor {
-    private int idAutor;
-    private String nombre;
-    private String nacionalidad;
+import jakarta.persistence.*;
 
-    public Autor(){
+@Entity
+@Table(name = "autor")
+public class Autor {
+
+    // atributos
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_autor")
+    private int idAutor;
+
+    @Column(name = "nombre")
+    private String nombre;
+
+    @Column(name = "apellido")
+    private String apellido;
+
+    @Column(name = "pais")
+    private String pais;
+
+    @Column(name = "direccion")
+    private String direccion;
+
+    @Column(name = "telefono")
+    private String telefono;
+
+    @Column(name = "correo")
+    private String correo;
+
+    // constructor vacío
+    public Autor() {
 
     }
 
-    public Autor(int idAutor, String nombre, String nacionalidad){
+    // constructor con parámetros
+    public Autor(int idAutor, String nombre, String apellido, String pais,
+                 String direccion, String telefono, String correo) {
+
         this.idAutor = idAutor;
         this.nombre = nombre;
-        this.nacionalidad = nacionalidad;
-
+        this.apellido = apellido;
+        this.pais = pais;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.correo = correo;
     }
+
+    // métodos getter and setter
+
     public int getIdAutor() {
         return idAutor;
     }
@@ -31,12 +66,44 @@ public class Autor {
         this.nombre = nombre;
     }
 
-    public String getNacionalidad() {
-        return nacionalidad;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setNacionalidad(String nacionalidad) {
-        this.nacionalidad = nacionalidad;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     @Override
@@ -44,8 +111,11 @@ public class Autor {
         return "Autor{" +
                 "idAutor=" + idAutor +
                 ", nombre='" + nombre + '\'' +
-                ", nacionalidad='" + nacionalidad + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", pais='" + pais + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", correo='" + correo + '\'' +
                 '}';
     }
 }
-

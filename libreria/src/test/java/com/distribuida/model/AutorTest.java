@@ -14,8 +14,12 @@ public class AutorTest {
 
         autor = new Autor(
                 1,
-                "Gabriel Garcia Marquez",
-                "Colombiano"
+                "Andres",
+                "Jacome Nuñez",
+                "Ecuador",
+                "Loja",
+                "0999999999",
+                "andres@gmail.com"
         );
     }
 
@@ -25,8 +29,12 @@ public class AutorTest {
         assertAll("Pruebas unitarias constructor Autor",
 
                 () -> assertEquals(1, autor.getIdAutor()),
-                () -> assertEquals("Gabriel Garcia Marquez", autor.getNombre()),
-                () -> assertEquals("Colombiano", autor.getNacionalidad())
+                () -> assertEquals("Andres", autor.getNombre()),
+                () -> assertEquals("Jacome Nuñez", autor.getApellido()),
+                () -> assertEquals("Ecuador", autor.getPais()),
+                () -> assertEquals("Loja", autor.getDireccion()),
+                () -> assertEquals("0999999999", autor.getTelefono()),
+                () -> assertEquals("andres@gmail.com", autor.getCorreo())
 
         );
 
@@ -37,14 +45,22 @@ public class AutorTest {
     public void testAutorSetter() {
 
         autor.setIdAutor(2);
-        autor.setNombre("Mario Vargas Llosa");
-        autor.setNacionalidad("Peruano");
+        autor.setNombre("Maria");
+        autor.setApellido("Fernandez");
+        autor.setPais("Alemania");
+        autor.setDireccion("Berlin");
+        autor.setTelefono("0988888888");
+        autor.setCorreo("maria@gmail.com");
 
         assertAll("Pruebas unitarias setter Autor",
 
                 () -> assertEquals(2, autor.getIdAutor()),
-                () -> assertEquals("Mario Vargas Llosa", autor.getNombre()),
-                () -> assertEquals("Peruano", autor.getNacionalidad())
+                () -> assertEquals("Maria", autor.getNombre()),
+                () -> assertEquals("Fernandez", autor.getApellido()),
+                () -> assertEquals("Alemania", autor.getPais()),
+                () -> assertEquals("Berlin", autor.getDireccion()),
+                () -> assertEquals("0988888888", autor.getTelefono()),
+                () -> assertEquals("maria@gmail.com", autor.getCorreo())
 
         );
 
@@ -59,8 +75,12 @@ public class AutorTest {
         assertAll("Pruebas unitarias toString",
 
                 () -> assertTrue(str.contains("1")),
-                () -> assertTrue(str.contains("Gabriel Garcia Marquez")),
-                () -> assertTrue(str.contains("Colombiano"))
+                () -> assertTrue(str.contains("Andres")),
+                () -> assertTrue(str.contains("Jacome Nuñez")),
+                () -> assertTrue(str.contains("Ecuador")),
+                () -> assertTrue(str.contains("Loja")),
+                () -> assertTrue(str.contains("0999999999")),
+                () -> assertTrue(str.contains("andres@gmail.com"))
 
         );
     }
